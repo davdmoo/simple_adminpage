@@ -20,7 +20,7 @@ function CreateAdmin() {
 
   useEffect(() => {
     dispatch(getCategories());
-  }, [])
+  }, [dispatch])
 
   const postAdmin = (event) => {
     event.preventDefault();
@@ -36,14 +36,14 @@ function CreateAdmin() {
       })
   };
 
-  const cancelCreate = () => {
-    navigate("/");
-  }
+  // const cancelCreate = () => {
+  //   navigate("/");
+  // }
 
   return (
     <div className="d-flex justify-content-center align-items-center" style={{ minHeight: "88vh" }}>
       <div>
-        <h1 className="text-center mb-5" style={{ color: "#191970" }}>Tambah Admin</h1>
+        <h1 className="text-center mb-4" style={{ color: "#191970" }}>Tambah Admin</h1>
 
         <form onSubmit={postAdmin} className="mb-3">
           <div className="mb-3">
@@ -73,13 +73,12 @@ function CreateAdmin() {
           </select>
         </div>
 
-          <div className="d-flex justify-content-end mt-4">
-            <Link to="/" style={{ marginRight: "1rem" }}>
-                <button onClick={cancelCreate} className="btn btn-light border border-dark">Batalkan</button>
-            </Link>
+          <Link to="/" style={{ marginRight: "1rem" }}>
+              <button className="btn btn-light border border-dark">Batalkan</button>
+          </Link>
 
-            <button className="btn text-light" type="submit" style={{ backgroundColor: "#191970" }}>Simpan</button>
-          </div>
+          <button className="btn text-light" type="submit" style={{ backgroundColor: "#191970" }}>Simpan</button>
+
         </form>
 
       </div>

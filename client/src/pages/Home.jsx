@@ -8,16 +8,13 @@ function Home() {
   const { admins } = useSelector(state => state);
 
   useEffect(() => {
-    console.log("Home");
     dispatch(getAdmins());
   }, [dispatch]);
 
   return (
-    <>
-      <div className="container">
-        <AdminTable admins={admins} />
-      </div>
-    </>
+    <div className="container">
+      <AdminTable admins={admins} />
+    </div>
   )
 };
 

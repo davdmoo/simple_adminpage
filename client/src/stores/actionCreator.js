@@ -19,6 +19,27 @@ export const getAdmins = () => {
   }
 }
 
+export const getAdmin = (id) => {
+  return (dispatch, getState) => {
+    return new Promise((resolve, reject) => {
+      axios({
+        method: "GET",
+        url: `${baseUrl}/admins/${id}`
+      })
+      .then(({ data }) => {
+        dispatch({
+            type: "admins/fetchDetail",
+            payload: data
+        });
+        resolve(data);
+      })
+      .catch((err) => {
+        reject(err);
+      })
+    })
+  }
+}
+
 export const createAdmin = (payload) => {
   return (dispatch, getState) => {
     return new Promise((resolve, reject) => {
@@ -32,6 +53,41 @@ export const createAdmin = (payload) => {
       })
       .catch((err) => {
         console.log(err);
+        reject(err);
+      })
+    })
+  }
+}
+
+export const updateAdmin = (id, payload) => {
+  return (dispatch, getState) => {
+    return new Promise((resolve, reject) => {
+      axios({
+        method: "PUT",
+        url: `${baseUrl}/admins/${id}`,
+        data: payload
+      })
+      .then(({ data }) => {
+        resolve(data);
+      })
+      .catch((err) => {
+        reject(err);
+      })
+    })
+  }
+}
+
+export const deleteAdmin = (id) => {
+  return (dispatch, getState) => {
+    return new Promise((resolve, reject) => {
+      axios({
+        method: "DELETE",
+        url: `${baseUrl}/admins/${id}`
+      })
+      .then(({ data }) => {
+        resolve(data);
+      })
+      .catch((err) => {
         reject(err);
       })
     })
