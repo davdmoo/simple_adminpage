@@ -1,4 +1,4 @@
 # tsn-adminpage
 
-- To run server: npm run dev (localhost 3000)
-- To run client: npm start (localhost 3001)
+- To run server: npm run dev (localhost 3001)
+- To run client: npm start (localhost 3000)
